@@ -1,38 +1,103 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Moon, Sun } from "lucide-react";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+const staggerChildren = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 const Portfolio = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch by only rendering theme toggle after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background transition-colors duration-300">
+      {/* Theme Toggle */}
+      {mounted && (
+        <div className="fixed top-4 right-4 z-50">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="backdrop-blur-sm"
+          >
+            <Sun className="h-6 w-6 rotate-0 scale-100 transition-all dark:rotate-90 dark:scale-0" />
+            <Moon className="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          </Button>
+        </div>
+      )}
+
       {/* Header/Hero Section */}
-      <header className="container mx-auto px-4 py-16 md:py-24">
+      <motion.header 
+        className="container mx-auto px-4 py-16 md:py-24"
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
+      >
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl font-bold">David Keathley</h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">Full Stack Engineer</p>
-          <div className="flex gap-4 pt-4">
-            <Button variant="outline" size="icon">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold"
+            variants={fadeInUp}
+          >
+            David Keathley
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-muted-foreground"
+            variants={fadeInUp}
+          >
+            Full Stack Engineer
+          </motion.p>
+          <motion.div 
+            className="flex gap-4 pt-4"
+            variants={fadeInUp}
+          >
+            <Button variant="outline" size="icon" className="hover:scale-110 transition-transform">
               <a href="https://github.com/GooeyTuxedo" className="p-1">
                 <Github className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="hover:scale-110 transition-transform">
               <a href="https://linkedin.com/in/thedavidkeathley" className="p-1">
                 <Linkedin className="h-6 w-6" />
               </a>
             </Button>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" size="icon" className="hover:scale-110 transition-transform">
               <a href="mailto:dev@based.consulting" className="p-1">
                 <Mail className="h-6 w-6" />
               </a>
             </Button>
-          </div>
+          </motion.div>
         </div>
-      </header>
+      </motion.header>
 
       {/* About Section */}
-      <section className="container mx-auto px-4 py-16">
+      <motion.section 
+        className="container mx-auto px-4 py-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Card className="bg-card">
           <CardHeader>
             <CardTitle>About Me</CardTitle>
@@ -48,11 +113,22 @@ const Portfolio = () => {
             </p>
           </CardContent>
         </Card>
-      </section>
+      </motion.section>
 
       {/* Skills Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Technical Skills</h2>
+      <motion.section 
+        className="container mx-auto px-4 py-16"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerChildren}
+      >
+        <motion.h2 
+          className="text-3xl font-bold mb-8"
+          variants={fadeInUp}
+        >
+          Technical Skills
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <SkillCard 
             title="Development"
@@ -67,11 +143,22 @@ const Portfolio = () => {
             skills={["Git", "CI/CD", "Test-Driven Development", "Agile", "Functional Programming"]}
           />
         </div>
-      </section>
+      </motion.section>
 
       {/* Experience Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold mb-8">Professional Experience</h2>
+      <motion.section 
+        className="container mx-auto px-4 py-16"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerChildren}
+      >
+        <motion.h2 
+          className="text-3xl font-bold mb-8"
+          variants={fadeInUp}
+        >
+          Professional Experience
+        </motion.h2>
         <div className="space-y-6">
           <ExperienceCard 
             title="DevOps Engineer"
@@ -92,10 +179,16 @@ const Portfolio = () => {
             description="Built and maintained large-scale enterprise applications while ensuring code quality through automated testing and peer review practices."
           />
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <section className="container mx-auto px-4 py-16">
+      <motion.section 
+        className="container mx-auto px-4 py-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <Card>
           <CardHeader>
             <CardTitle>Get in Touch</CardTitle>
@@ -112,36 +205,40 @@ const Portfolio = () => {
             </p>
           </CardContent>
         </Card>
-      </section>
+      </motion.section>
     </div>
   );
 };
 
-const SkillCard = ({ title, skills }: {title: string, skills: string[]}) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>{title}</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <ul className="list-none space-y-2">
-        {skills.map((skill, index) => (
-          <li key={index} className="text-muted-foreground">{skill}</li>
-        ))}
-      </ul>
-    </CardContent>
-  </Card>
+const SkillCard = ({ title, skills }: { title: string, skills: string[]}) => (
+  <motion.div variants={fadeInUp}>
+    <Card className="h-full hover:shadow-lg transition-shadow">
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ul className="list-none space-y-2">
+          {skills.map((skill, index) => (
+            <li key={index} className="text-muted-foreground">{skill}</li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  </motion.div>
 );
 
-const ExperienceCard = ({ title, company, period, description }: {title: string, company: string, period: string, description: string}) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>{title}</CardTitle>
-      <CardDescription>{company} | {period}</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <p className="text-muted-foreground">{description}</p>
-    </CardContent>
-  </Card>
+const ExperienceCard = ({ title, company, period, description }: { title: string, company: string, period: string, description: string }) => (
+  <motion.div variants={fadeInUp}>
+    <Card className="hover:shadow-lg transition-shadow">
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{company} | {period}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
+  </motion.div>
 );
 
 export default Portfolio;
