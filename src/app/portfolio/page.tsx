@@ -231,7 +231,7 @@ const Portfolio = () => {
             <CardHeader>
               <CardTitle>Get in Touch</CardTitle>
               <p className="text-muted-foreground">
-                I'm currently open to new opportunities
+                I&apos;m currently open to new opportunities
               </p>
             </CardHeader>
             <CardContent>
