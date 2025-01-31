@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Keathley's Portfolio
 
-## Getting Started
+## 🚀 Welcome!
 
-First, run the development server:
+I'm David, a passionate full-stack engineer who brings a unique blend of software development expertise and DevOps proficiency to the table. With a background spanning financial technology and horticulture, I bring diverse perspectives to problem-solving in software development.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 Who I Am
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I'm a self-taught developer who believes in the power of continuous learning and practical application. My journey from horticulture to tech has taught me that the best solutions often come from unexpected places, and that different perspectives can lead to innovative approaches to complex problems.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+What drives me? The endless possibilities of technology and its potential to create efficient, scalable solutions that make a real difference. I'm particularly passionate about:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Building robust, maintainable systems that stand the test of time
+- Bridging the gap between development and operations
+- Contributing to open-source and fostering community collaboration
+- Implementing automation that makes developers' lives easier
+- Creating elegant solutions to complex problems
 
-## Learn More
+## 🛠️ My Approach
 
-To learn more about Next.js, take a look at the following resources:
+As a developer, I embrace:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Test-Driven Development**: I believe in writing code that's reliable and maintainable from the start.
+- **Continuous Learning**: Technology evolves rapidly, and I'm committed to staying at the forefront.
+- **Collaborative Development**: I thrive in environments where knowledge sharing and pair programming are valued.
+- **DevOps Culture**: I champion the integration of development and operations to create more efficient workflows.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎯 What I Bring to the Table
 
-## Deploy on Vercel
+- Strong foundation in modern web technologies (JavaScript/TypeScript, React)
+- Extensive experience with containerization and orchestration (Docker, Kubernetes)
+- Proven track record of modernizing infrastructure and reducing costs
+- Dedication to writing clean, maintainable code
+- A problem-solver's mindset with a focus on practical solutions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Let's Connect
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+I'm always excited to discuss new technologies, collaborate on interesting projects, or explore opportunities where I can make a meaningful impact. Whether you're looking to build something amazing or just want to chat about tech, I'd love to connect!
+
+Feel free to reach out through:
+- 📧 Email: dev@based.consulting
+- 💼 LinkedIn: https://linkedin.com/in/thedavidkeathley
+- 🐱 GitHub: [GooeyTuxedo](https://github.com/GooeyTuxedo)
+
+## 🌱 Looking Forward
+
+I'm currently seeking opportunities where I can leverage my full-stack and DevOps expertise to build innovative solutions and contribute to a team's success. If you're looking for someone who combines technical expertise with a passion for continuous improvement, let's talk!
+
+---
+
+This portfolio is built with Next.js, TypeScript, and shadcn/ui, demonstrating my commitment to using modern, maintainable technologies.
