@@ -13,6 +13,35 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
+const ProjectCard = ({ title, description, tags, status }: { title: string, description: string, tags: string[], status: string }) => (
+  <motion.div variants={fadeInUp}>
+    <Card className="h-full hover:shadow-lg transition-shadow">
+      <CardHeader>
+        <div className="flex justify-between items-start">
+          <CardTitle>{title}</CardTitle>
+          <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary">
+            {status}
+          </span>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p className="text-muted-foreground">{description}</p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span 
+              key={index} 
+              className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
+);
+
+
 const ExperienceCard = ({ title, company, period, description }: { title: string, company:string, period: string, description: string }) => (
   <motion.div variants={fadeInUp}>
     <Card className="hover:shadow-lg transition-shadow">
@@ -212,6 +241,55 @@ const Portfolio = () => {
             />
           </div>
         </motion.section>
+
+        {/* Projects Section */}
+        <motion.section 
+          className="mt-16"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
+          <motion.h2 
+            className="text-3xl font-bold mb-8"
+            variants={fadeInUp}
+          >
+            Featured Projects
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ProjectCard 
+              title="Space Exploration Tracker"
+              description="Track space missions, celestial events, and explore stunning images from space. All data sourced from the public NASA API."
+              tags={["Next.js", "TypeScript", "REST API", "TailwindCSS"]}
+              status="In Development"
+            />
+            <ProjectCard 
+              title="Cloud Infrastructure Dashboard"
+              description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
+              tags={["React", "TypeScript", "Kubernetes", "WebSocket"]}
+              status="Planning"
+            />
+            <ProjectCard 
+              title="DevOps Automation Suite"
+              description="A collection of infrastructure-as-code templates and CI/CD pipelines. Includes Terraform modules for AWS infrastructure and ArgoCD configurations for Kubernetes deployments."
+              tags={["Terraform", "ArgoCD", "AWS", "GitOps"]}
+              status="Planning"
+            />
+            <ProjectCard 
+              title="E-Commerce Platform"
+              description="A modern e-commerce platform with headless CMS integration. Features server-side rendering, cart functionality, and integrated payment processing."
+              tags={["Next.js", "Stripe", "PostgreSQL", "TailwindCSS"]}
+              status="Concept"
+            />
+          </div>
+        </motion.section>
+
 
         {/* Contact Section */}
         <motion.section 
