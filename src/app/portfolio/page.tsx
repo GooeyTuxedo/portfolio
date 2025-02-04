@@ -270,6 +270,12 @@ const Portfolio = () => {
               status="In Development"
             />
             <ProjectCard 
+              title="AI Tweet Generator"
+              description="A web application that leverages AI to generate engaging Twitter posts."
+              tags={["LLM Integration", "Next.js", "TypeScript", "TailwindCSS"]}
+              status="In Development"
+            />
+            <ProjectCard 
               title="Cloud Infrastructure Dashboard"
               description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
               tags={["React", "TypeScript", "Kubernetes", "WebSocket"]}
@@ -279,12 +285,6 @@ const Portfolio = () => {
               title="DevOps Automation Suite"
               description="A collection of infrastructure-as-code templates and CI/CD pipelines. Includes Terraform modules for AWS infrastructure and ArgoCD configurations for Kubernetes deployments."
               tags={["Terraform", "ArgoCD", "AWS", "GitOps"]}
-              status="Planning"
-            />
-            <ProjectCard 
-              title="E-Commerce Platform"
-              description="A modern e-commerce platform with headless CMS integration. Features server-side rendering, cart functionality, and integrated payment processing."
-              tags={["Next.js", "Stripe", "PostgreSQL", "TailwindCSS"]}
               status="Concept"
             />
           </div>
