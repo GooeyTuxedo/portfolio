@@ -266,19 +266,31 @@ const Portfolio = () => {
             <ProjectCard 
               title="Space Exploration Tracker"
               description="Track space missions, celestial events, and explore stunning images from space. All data sourced from the public NASA API."
-              tags={["Next.js", "TypeScript", "REST API", "TailwindCSS"]}
+              tags={["TypeScript", "Next.js", "REST API", "TailwindCSS"]}
               status="In Development"
             />
             <ProjectCard 
               title="AI Tweet Generator"
               description="A web application that leverages AI to generate engaging Twitter posts."
-              tags={["LLM Integration", "Next.js", "TypeScript", "TailwindCSS"]}
+              tags={["TypeScript", "LLM Integration", "Next.js", "TailwindCSS"]}
               status="In Development"
+            />
+            <ProjectCard 
+              title="Weather App"
+              description="A dynamic weather forecast app using a third party API to fetch real-time data."
+              tags={["TypeScript", "Next.js", "TailwindCSS", "Serverless Functions"]}
+              status="In Development"
+            />
+            <ProjectCard 
+              title="AI Chatbot for WhatsApp"
+              description="An AI-powered bot for WhatsApp that leverages the OpenAI API. It enables users to interact with advanced bots in a natural and efficient manner."
+              tags={["TypeScript", "LLM Integration", "Node.js"]}
+              status="Planning"
             />
             <ProjectCard 
               title="Cloud Infrastructure Dashboard"
               description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
-              tags={["React", "TypeScript", "Kubernetes", "WebSocket"]}
+              tags={["TypeScript", "React",  "Kubernetes", "WebSocket"]}
               status="Planning"
             />
             <ProjectCard 
