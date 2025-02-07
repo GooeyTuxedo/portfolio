@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { useTheme } from "next-themes";
+import { Github, Linkedin, Mail, Sun, Moon, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Mail, Sun, Moon } from "lucide-react";
-import { motion } from "framer-motion";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -13,33 +15,92 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
-const ProjectCard = ({ title, description, tags, status }: { title: string, description: string, tags: string[], status: string }) => (
-  <motion.div variants={fadeInUp}>
-    <Card className="h-full hover:shadow-lg transition-shadow">
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <CardTitle>{title}</CardTitle>
-          <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary">
-            {status}
-          </span>
-        </div>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-muted-foreground">{description}</p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <span 
-              key={index} 
-              className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  </motion.div>
-);
+const ProjectCard = ({ title, description, tags, status, screenshot, liveUrl }: { title: string, description: string, tags: string[], status: string, screenshot?: string, liveUrl?: string }) => {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return (
+    <>
+      <motion.div variants={fadeInUp}>
+        <Card 
+          className="h-full hover:shadow-lg transition-shadow cursor-pointer"
+          onClick={() => setShowModal(true)}
+        >
+          <CardHeader>
+            <div className="flex justify-between items-start">
+              <CardTitle>{title}</CardTitle>
+              <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary">
+                {status}
+              </span>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-muted-foreground">{description}</p>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span 
+                  key={index} 
+                  className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      <Dialog open={showModal} onOpenChange={setShowModal}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogDescription>
+              {status}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="overflow-hidden rounded-lg border">
+              {screenshot && (
+                <img
+                  src={screenshot}
+                  alt={`Screenshot of ${title}`}
+                  className="w-full h-auto max-h-[50vh] object-contain"
+                />
+              )}
+            </div>
+            <p className="text-muted-foreground">
+              {description}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag, index) => (
+                <span 
+                  key={index} 
+                  className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {liveUrl && (
+              <div className="flex justify-end">
+                <Button asChild>
+                  <a 
+                    href={liveUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    View Live App
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
 
 
 const ExperienceCard = ({ title, company, period, description }: { title: string, company:string, period: string, description: string }) => (
@@ -264,22 +325,28 @@ const Portfolio = () => {
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ProjectCard 
-              title="Space Exploration Tracker"
-              description="Track space missions, celestial events, and explore stunning images from space. All data sourced from the public NASA API."
-              tags={["TypeScript", "Next.js", "REST API", "TailwindCSS"]}
-              status="In Development"
+              title="Weather App"
+              description="A dynamic weather forecast app using a third party API to fetch real-time data."
+              tags={["TypeScript", "Next.js", "TailwindCSS", "Serverless Functions"]}
+              status="Feature Complete"
+              screenshot="/weather_proj.png"
+              liveUrl="https://weather.based.consulting"
             />
             <ProjectCard 
               title="AI Tweet Generator"
               description="A web application that leverages AI to generate engaging Twitter posts."
               tags={["TypeScript", "LLM Integration", "Next.js", "TailwindCSS"]}
               status="In Development"
+              screenshot="/tweet_proj.png"
+              liveUrl="https://tweetgen.based.consulting"
             />
             <ProjectCard 
-              title="Weather App"
-              description="A dynamic weather forecast app using a third party API to fetch real-time data."
-              tags={["TypeScript", "Next.js", "TailwindCSS", "Serverless Functions"]}
+              title="Space Exploration Tracker"
+              description="Track space missions, celestial events, and explore stunning images from space. All data sourced from the public NASA API."
+              tags={["TypeScript", "Next.js", "REST API", "TailwindCSS"]}
               status="In Development"
+              screenshot="/space_proj.png"
+              liveUrl="https://space.based.consulting"
             />
             <ProjectCard 
               title="AI Chatbot for WhatsApp"
