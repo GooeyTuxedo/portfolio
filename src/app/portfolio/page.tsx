@@ -349,15 +349,16 @@ const Portfolio = () => {
               liveUrl="https://space.based.consulting"
             />
             <ProjectCard 
+              title="Cloud Infrastructure Dashboard"
+              description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
+              tags={["TypeScript", "Next.js", "Redux",  "Kubernetes", "WebSocket"]}
+              status="In Development"
+              screenshot='/k8s_dashboard_proj.png'
+            />
+            <ProjectCard 
               title="AI Chatbot for WhatsApp"
               description="An AI-powered bot for WhatsApp that leverages the OpenAI API. It enables users to interact with advanced bots in a natural and efficient manner."
               tags={["TypeScript", "LLM Integration", "Node.js"]}
-              status="Planning"
-            />
-            <ProjectCard 
-              title="Cloud Infrastructure Dashboard"
-              description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
-              tags={["TypeScript", "React",  "Kubernetes", "WebSocket"]}
               status="Planning"
             />
             <ProjectCard 
