@@ -283,7 +283,7 @@ const Portfolio = () => {
           </motion.h2>
           <div className="space-y-6">
             <ExperienceCard 
-              title="DevOps Engineer"
+              title="DevOps Consultant"
               company="Omakasea (501(c)(3) Nonprofit)"
               period="July 2023 - January 2024"
               description="Led infrastructure modernization efforts, implementing container orchestration and automated deployments while achieving significant cost savings."
@@ -341,19 +341,19 @@ const Portfolio = () => {
               liveUrl="https://tweetgen.based.consulting"
             />
             <ProjectCard 
+              title="Cloud Infrastructure Dashboard"
+              description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
+              tags={["TypeScript", "Next.js", "Redux",  "Kubernetes", "WebSocket"]}
+              status="In Development"
+              screenshot='/k8s_dashboard_proj.png'
+            />
+            <ProjectCard 
               title="Space Exploration Tracker"
               description="Track space missions, celestial events, and explore stunning images from space. All data sourced from the public NASA API."
               tags={["TypeScript", "Next.js", "REST API", "TailwindCSS"]}
               status="In Development"
               screenshot="/space_proj.png"
               liveUrl="https://space.based.consulting"
-            />
-            <ProjectCard 
-              title="Cloud Infrastructure Dashboard"
-              description="A real-time monitoring dashboard for Kubernetes clusters. Built with React, TypeScript, and WebSocket integration for live updates. Features cost optimization insights and deployment tracking."
-              tags={["TypeScript", "Next.js", "Redux",  "Kubernetes", "WebSocket"]}
-              status="In Development"
-              screenshot='/k8s_dashboard_proj.png'
             />
             <ProjectCard 
               title="AI Chatbot for WhatsApp"
